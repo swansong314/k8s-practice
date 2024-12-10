@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: voting-app
+  labels:
+    name: voting-app-service
+    app: epatel-voting-app
+spec:
+  type: NodePort
+  selector:
+    name: voting-app-pod
+    app: epatel-voting-app
+  ports:
+  - port: 80
+    targetPort: 80
+    nodePort: 30001
