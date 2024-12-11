@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: pod-with-container-user
+  name: pod-with-container-user
+spec:
+  containers:
+  - image: alpine 
+    name: pod-with-container-user
+    securityContext:
+      runAsUser: 1002
+      capabilities:
+        add: ["SYS_TIME"]
+    command: 
+    - "sleep"
+    args: 
+    - "400"
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
